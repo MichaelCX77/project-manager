@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Cadastrar Escola</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <nav>
+                    <div class="menu-icon hide-desk">
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+        <a href="/for-schools"><button class="back-button default-btn">Voltar</button></a>
+            <h1>Cadastro de Escola</h1>
+            <form method="POST"  action="/cadastro-escola" class="form-cadastro form-double-content">
+                <div th:each="escola : ${escola}" class="form-content">
+                    <div class="content first-content">
+                        <h3>Informações da Escola</h3>
+                        <div class="box-field">
+                            <label for="scholl-name">Nome da instituição:</label>
+                            <input id="scholl-name" type="text" name="nome" th:value="${escola.nome}"/>
+                        </div>
+                        <div class="box-field">
+                            <label for="cnpj-field">CNPJ:</label>
+                            <input id="cnpj-field" type="text" name="cnpj" th:value="${escola.cnpj}"/>
+                        </div>
+                    </div>
+                    <div class="content second-content">
+                        <h3>Informações do Diretor</h3>
+                        <div class="box-field">
+                            <label for="director-name">Nome:</label>
+                            <input id="director-name" type="text" name="nomeFundador" th:value="${escola.nomeFundador}"/>
+                        </div>
+                        <div class="box-field">
+                            <label for="director-email">Email:</label>
+                            <input id="director-email" type="email" name="emailFundador" th:value="${escola.emailFundador}"/>
+                        </div>
+                        <div class="box-field">
+                            <label for="director-phone">Telefone:</label>
+                            <input id="director-phone" type="text" name="telefoneFundador" th:value="${escola.telefoneFundador}"/>
+                        </div>
+                        <div class="box-field">
+                            <label for="input-cpf">CPF:</label>
+                            <input id="input-cpf" type="text" name="cpfFundador" th:value="${escola.cpfFundador}"/>
+                        </div>
+                        <div class="box-field">
+                            <label for="director-dt-nascimento">Data de Nascimento:</label>
+                            <input id="director-dt-nascimento" type="date" name="dtNascFundador" th:value="${escola.dtNascFundador}"/>
+                        </div>
+                        <div class="box-field">
+                            <label for="director-dt-nascimento">Senha:</label>
+                            <input id="director-password" type="password" name="senha" th:value="${escola.senha}"/>
+                        </div>
+                        <div class="box-field">
+                            <label for="director-confirma-password">Confirma Senha:</label>
+                            <input id="director-confirma-password" type="password" name="confirma-senha"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <p>Sem Internet  Verificar os cabos de rede, modem e roteador
+                        Conectar à rede Wi-Fi novamente
+                        Executar o Diagnóstico de Rede do Windows
+                        ERR_INTERNET_DISCONNECTED
+                    </p>
+                    <p class="input-accept">
+                        <input type="checkbox">
+                        <span>Aceito</span>    
+                    </p>
+                    <span class="link-download">Baixar Termo de Responsability:</span>
+                    <span th:text="${mensagem}"></span>
+                    <button type="submit" class="default-btn form-btn w-100">Cadastrar</button>
+                </div>
+            </form>
+        </main>
+        </br></br></br></br>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

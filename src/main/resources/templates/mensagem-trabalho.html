@@ -1,0 +1,33 @@
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/vendor/reset.css">
+        <link rel="stylesheet" href="/css/vendor/tachyons.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="sortcut icon" href="/imagens/favicon.ico" type="image/x-icon" />
+        <title>Mensagem</title>
+    </head>
+    <body class="mensagem">
+        <header>
+            <div class="header-content">
+                <nav>
+                    <div class="menu-icon hide-desk">
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="page-header">
+            <h2><span th:text="${mensagem}"></span></h2>
+           </div>
+           <a th:href="@{/novo-trabalho/(idCurso=${idCurso},idClasse=${idClasse})}"><button class="default-btn form-btn">Novo Trabalho</button></a>
+           <a th:href="@{/trabalhos-classe/(idCurso=${idCurso},idClasse=${idClasse})}"><button class="default-btn form-btn">Voltar</button></a>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="/js/main.js"></script>
+    </body>
+</html>

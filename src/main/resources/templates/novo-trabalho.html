@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/vendor/reset.css">
+        <link rel="stylesheet" href="/css/vendor/tachyons.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="sortcut icon" href="/imagens/favicon.ico" type="image/x-icon" />
+        <title>Novo Trabalho</title>
+    </head>
+    <body class="cadastro-aluno">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <a th:href="@{/trabalhos-classe/(idCurso=${idCurso},idClasse=${idClasse})}"><button class="back-button default-btn">Voltar</button></a>
+            <h1>Novo Trabalho</h1>
+            <form th:each="trabalho : ${trabalho}" method="POST" class="form-cadastro"  action="/novo-trabalho">
+                <div class="form-content">
+                    <div class="box-field">
+                        <label >Disciplina:</label>
+                        <select id="select-unit-country" th:name="idDisciplina">
+                            <option th:each="listDisciplina : ${listDisciplina}" th:value="${listDisciplina.id}" th:text="${listDisciplina.nome}"></option>
+                        </select>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-class-name">Nome do Trabalho:</label>
+                        <input id="input-class-name" type="text" name="nome" th:value="${trabalho.nome}" />
+                    </div>
+                    <div class="box-field">
+                        <label for="input-subject-description">Decrição do Trabalho:</label>
+                        <textarea id="input-subject-description" rows="6" cols="50" name="descricao" th:text="${trabalho.descricao}"></textarea>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-dt-nascimento">Data de Entrega:</label>
+                        <input id="input-dt-nascimento" type="date" name="dtEntrega" th:value="${trabalho.dtEntrega}"/>
+                    </div>
+                    <input type="hidden" id="input-email" name="idCurso" th:value="${idCurso}"/>
+			   		<input type="hidden" id="input-email" name="idClasse" th:value="${idClasse}"/>
+			   		<span th:text="${mensagem}"></span>
+                    <button type="submit" class="default-btn form-btn w-100">Criar</button>
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="/js/main.js"></script>
+    </body>
+</html>

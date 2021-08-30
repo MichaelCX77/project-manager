@@ -1,0 +1,56 @@
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+		<link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Project Manager</title>
+    </head>
+    <body class="login">
+        <header>
+            <div class="header-content">
+                <nav>
+                    <div class="menu-icon hide-desk">
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="page-header">
+                <a class="login-title-link" href="for-schools">For Schools</a>
+            </div>
+            <div class="page-content">
+                	<img src="imagens/logo.jpeg" width=400 height=178/>
+            </div>
+            <form action="/login" method="POST" class="form-cadastro">
+                <div th:each="usuario : ${usuario}" class="form-content">   
+                <br>                 
+                    <div class="box-field">
+                        <label for="input-email">Email:</label>
+                        <input id="input-email" type="text" name="username" placeholder="Digite seu e-mail..." th:value="${usuario.email}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-senha">Senha:</label>
+                        <input id="input-senha" type="password" name="password" placeholder="Digite sua senha..." th:value="${usuario.senha}" />
+                    </div>
+                    <span th:text="${mensagem}"></span>
+                    <button type="submit" class="default-btn form-btn" onclick="validEmail(thi.email)">Entrar</button>
+                </div>
+                <div class="form-footer">
+                    <a href="/recuperar-senha" class="forgot-password-link">Esqueci minha senha</a>
+                    <p class="register-paragrah">Ainda não possui um cadastro? <a href="/criar-conta">Cadastrar</a></p>
+                </div>
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+            
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+		<footer th:replace="fragments/footer.html"></footer>
+    </body>
+</html>

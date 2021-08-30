@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Detalhes do Grupo</title>
+    </head>
+    <body>
+		<header th:insert="fragments/header.html :: header"> </header>
+        <main>
+            <button class="back-button">Voltar</button>
+            <h1>Detalhes do Grupo</h1>
+            <div class="page-content">
+                <div class="box-change-all">
+                    <input type="text" name="nota" id="nota">
+                    <select name="pontuacao" id="pontuacao">
+                        <option value="0"></option>
+                    </select>
+                    <select name="pontos-positivos" id="pontos-positivos">
+                        <option value="Selecione"></option>
+                    </select>
+                    <select name="pontos-negativos" id="pontos-negativos">
+                        <option value="Selecione"></option>
+                    </select>
+                    <!-- cada change aqui, altera os item da lista de baixo com base no seu respectivo campo -->
+                </div>
+                <div class="info-container">
+                    <div class="info-header">
+                        <h3>Nome</h3>
+                        <h3>RA</h3>
+                        <h3>Nota</h3>
+                        <h3>Pontuacao</h3>
+                        <h3>Pontos positivos</h3>
+                        <h3>Pontos Negativos</h3>
+                    </div>
+                    <div class="info-content">
+                        <!-- fazer get no json do JAN para montar a lista de items dessa parte, com base no box-change-all -->
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Ativar Código</title>
+    </head>
+    <body>
+			<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+          <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+            <h1>Ativar Código de Acesso</h1>
+            <form method="POST" class="form-cadastro">
+				<div th:each="codigos : ${codigos}" class="form-content">
+		            <div class="box-field">
+		           		<label for="input-email">Insira o código abaixo:</label>
+		                <input id="input-email" type= "text"  name="codigo" th:value="${codigos.codigo}"/>
+		            </div>
+		            <span th:text="${mensagem}"></span>
+		            <div class="form-footer-2btn flex justify-center">
+                        <button class="default-btn form-btn" type="submit">Ativar Código</button>
+                    </div>
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Criar Classe</title>
+    </head>
+    <body class="cadastro-aluno">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+            <h1>Cadastrar Nova Classe</h1>
+            <form th:each="classe : ${classe}" method="POST" class="form-cadastro"  action="/criar-classe">
+                <div class="form-content">
+                    <div class="box-field">
+                        <label >Unidade:</label>
+                        <select id="select-unit-country" th:name="idUnidade">
+                            <option th:each="unidade : ${unidade}" th:value="${unidade.id}" th:text="${unidade.nome}"></option>
+                        </select>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-class-name">Nome da Classe:</label>
+                        <input id="input-class-name" type="text" name="nome" th:value="${classe.nome}" />
+                    </div>
+                    <div class="box-field">
+                        <label for="input-class-cod">Código da Classe:</label>
+                        <input id="input-class-cod" type="text" name="codigo" th:value="${classe.codigo}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-year">Ano:</label>
+                        <input id="input-year" type="text" name="ano" th:value="${classe.ano}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-semester-name">Semestre do Curso:</label>
+                        <input id="input-semester-name" type="text" name="semestre" th:value="${classe.semestre}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-period-name">Período do Ano (1 ou 2):</label>
+                        <input id="input-period-name" type="text" name="periodo" th:value="${classe.periodo}"/>
+                    </div>
+                    <span th:text="${mensagem}"></span>
+                    <button type="submit" class="default-btn form-btn w-100">Cadastrar</button>
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+        </main>
+        </br></br></br></br>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

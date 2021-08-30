@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Nova Unidade</title>
+    </head>
+    <body class="cadastro-aluno">
+        <header th:insert="fragments/header.html :: header"> </header> 
+        <main>
+            <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+            <h1>Cadastrar Nova Unidade</h1>
+            <form  th:each="unidade : ${unidade}" action="/criar-unidade" method="POST" class="form-cadastro">
+                <div class="form-content">
+                    <div class="box-field">
+                        <label for="input-unit-cep">Nome da Unidade:</label>
+                        <input name="nome" id="input-unit-nome" type="text" th:value="${unidade.nome}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-unit-cep">Cep:</label>
+                        <input name="cep" id="input-unit-cep" type="text" th:value="${unidade.cep}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="select-unit-country">País:</label>
+                        <select name="pais" id="select-unit-country" th:value="${unidade.pais}">
+                            <option value="Brasil">Brasil</option>
+                        </select>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-unit-state">Estado:</label>
+                        <input name="estado" id="input-unit-state" type="text" placeholder="Ex.: (SP)" th:value="${unidade.estado}" />
+                    </div>
+                    <div class="box-field">
+                        <label for="input-unit-city">Cidade:</label>
+                        <input name="cidade" id="input-unit-city" type="text" th:value="${unidade.cidade}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-unit-address">Endereço:</label>
+                        <input name="endereco" id="input-unit-address" type="text" th:value="${unidade.endereco}" />
+                    </div>
+                    <div class="box-field">
+                        <label for="input-unit-number">Número:</label>
+                        <input name="numero" id="input-unit-number" type="text" th:value="${unidade.numero}"/>
+                    </div>
+                    <span th:text="${mensagem}"></span>
+                    <button type="submit" class="default-btn form-btn w-100">Cadastrar</button>
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+        </main>
+        </br></br></br></br>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

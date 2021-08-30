@@ -1,0 +1,16 @@
+package com.projectmanager;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+
+@SpringBootApplication(scanBasePackages = {"com.projectmanager.controller","com.projectmanager.security","com.projectmanager.data"})
+public class ProjectManagerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProjectManagerApplication.class, args);		
+		
+	}
+
+}

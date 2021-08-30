@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <title>Meus Financeiros</title>
+    </head>
+    <body class="class-listing">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <div class="class-listing-content">
+                <div class="w-15">
+                    <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+                </div>
+                <div class="box-list-items">
+                	<h1>Meus Financeiros:</h1>
+                    <diV class="box-list-database">   
+                    		<form method="POST" action="/adicionar-colaborador" class="form-cadastro">
+								<div class="form-content">
+									<div class="box-field">
+										<label for="input-email">Adicionar Financeiro:</label>
+									</div>
+									<div class="box-field">
+										<input id="input-email" type="email" name="email" placeholder="Digite o e-mail do colaborador..." th:value="${email}"></input>
+										<input type="hidden" id="" name="tela" value="FI"/>
+									</div>
+									 <span th:text="${mensagem}"></span>
+									 <input type="hidden" id="input-email" name="idRelacaoClasse" th:value="${idRelacaoClasse}"/>
+                   					 <button type="submit" class="default-btn form-btn w-100">Adicionar</button>
+								</div>
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+							</form>
+                    	    <table>
+								<thead>
+									<tr>
+										<th>Unidade:</th>
+										<th>Financeiro:</th>
+										<th>E-mail:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="list-item" th:each="colaboradores : ${colaboradores}" th:value="${colaboradores.id}">
+										<td><span th:text="${colaboradores.relacaoClasse.unidade.nome}"></span></td>
+										<td><span th:text="${colaboradores.usuarioIncluido.nome}"></span></td>
+										<td><span th:text="${colaboradores.usuarioIncluido.email}"></span></td>
+										<td><button class="item-details"></button></td>
+										<td><button class="item-remove"></button></td>
+									</tr>
+								</tbody>
+							</table>
+                    </diV>
+                </div>
+            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+</html>

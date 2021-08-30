@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/vendor/reset.css">
+        <link rel="stylesheet" href="/css/vendor/tachyons.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css.css">
+        <link rel="sortcut icon" href="/imagens/favicon.ico" type="image/x-icon" />
+        <title>Detalhes da Sala</title>
+    </head>
+    <body class="class-listing">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+	         <main>
+		         <div class="class-listing-content">
+		         	<a href="/home"><button class="back-button default-btn">Voltar</button></a>
+		             <div class="box-list-items">
+		             <h1 th:each="classe : ${classe}" th:text="'Detalhes da Sala: ' + ${classe.codigo} + ' - ' +${classe.nome}"></h1>
+		             		<div class="home-list-items">
+		             			<div  th:each="classe : ${classe}" class="list-item">
+					                    <a href="#" class="db">
+							              <div class="box-title">
+							                    <h5>Classe: <span th:text="${classe.nome}"></span></h5>
+							                    <h5>Código: <span th:text="${classe.codigo}"></span></h5>
+							                    <h5>Data de Criação: <span th:text="${classe.dtCriacao}"></span></h5>
+							                    <h5>Ano de Referência: <span th:text="${classe.ano}"></span></h5>
+							                    <h5>Periodo: <span th:text="${classe.periodo}"></span></h5> 
+							              </div>
+								          <div class="box-title">
+							                    <h5>Curso: <label th:text="${curso.nomeCurso}"></label></h5>
+							                    <h5>Código: <label th:text="${curso.codigoCurso}"></label></h5>
+							                    <h5>Coordenador: <label th:text="${curso.nomeCoordenador}"></label></h5>
+							              </div>
+					                  </a>
+					             </div>
+		             		</div>
+         					<div class="box-list-database">
+         							<h1>Adicionar Alunos:</h1>
+         							<table>
+										<thead>
+											<tr>
+												<th>Email:</th>
+												<th>Solicitar:</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="usuario : ${usuario}" class="list-item">
+												<td><input id="input-email" type="email" name="email" th:value="${usuario.email}" required></input></td>
+												<td><a th:href="@{/adicionar-integrantes/(email=${email})}"><button class="arrow-icon"></button></a></td>
+											</tr>
+										</tbody>
+									</table>
+									<br/>
+									<br/>
+							        <h1>Alunos:</h1>
+							        <span th:text="${mensagemAlunos}"></span>
+					                <table>
+										<thead>
+											<tr>
+												<th>Nome:</th>
+												<th>Registro:</th>
+												<th>Status:</th>
+												<th>Data de Expiração:</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="listAlunos : ${listAlunos}" class="list-item">
+												<td><span th:text="${listAlunos.usuarioIncluido.nome}"></span></td>
+												<td><span th:text="${listAlunos.usuarioIncluido.registro}"></span></td>		
+												<td><span th:text="${listAlunos.status}"></span></td>
+												<td><span th:text="${listAlunos.dtVencimento}"></span></td>							
+											</tr>
+										</tbody>
+									</table>
+				    		</div>
+    		    </div>
+		    </div>
+       	</main>
+       	<footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="/js/main.js"></script>
+    </body>
+</html>

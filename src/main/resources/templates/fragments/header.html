@@ -1,0 +1,43 @@
+<header>
+    <div class="header-content">
+        <nav>
+            <div class="menu-icon hide-desk">
+                <div class="burger">
+                    <svg height="384pt" viewBox="0 -53 384 384" width="384pt" xmlns="http://www.w3.org/2000/svg"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"></path><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"></path><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"></path></svg>
+                </div>
+                <div class="config svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.643 29.643"><path fill="white" d="M18.621 12.397l-.546-1.295s1.267-2.859 1.157-2.969l-1.678-1.639c-.117-.113-2.978 1.191-2.978 1.191l-1.32-.533s-1.169-2.898-1.327-2.898h-2.37c-.164 0-1.242 2.906-1.242 2.906l-1.319.535S4.076 6.453 3.964 6.56L2.287 8.203c-.116.115 1.219 2.916 1.219 2.916l-.544 1.295S0 13.553 0 13.709v2.322c0 .16 2.969 1.217 2.969 1.217l.545 1.291S2.246 21.4 2.357 21.51l1.679 1.641c.113.111 2.976-1.195 2.976-1.195l1.321.537s1.166 2.896 1.326 2.896h2.37c.163 0 1.244-2.906 1.244-2.906l1.32-.535s2.918 1.242 3.031 1.135l1.678-1.643c.115-.111-1.221-2.914-1.221-2.914l.546-1.295s2.963-1.143 2.963-1.299v-2.32c.001-.159-2.969-1.215-2.969-1.215zm-7.826 5.81c-1.905 0-3.459-1.52-3.459-3.387 0-1.865 1.554-3.385 3.459-3.385 1.908 0 3.459 1.52 3.459 3.385 0 1.868-1.551 3.387-3.459 3.387z"></path></svg>
+                </div>
+            </div>
+            <div class="box-logo">
+                <a class="db" href="/home">
+                <img src="/imagens/logo-menu.jpeg" width=60 height=60/>
+                </a>
+            </div>
+            <ul class="box-menu">
+                <li><a href="/home">Pagina Inicial</a></li>
+                <li class="item-user"><a href="#">                        
+                    </a><a class="flex items-center" href="/perfil">
+                    		<img src="/imagens/usuario3.png" width=65 height=65/>
+                        <span th:text="${nomeUsuario}"></span>
+                    </a>
+                </li>
+                <li><a href="/notificacoes">Notificacoes</a></li>
+                <li><a href="/conversas">Conversas</a></li><li>
+                <div class="box-barra-pesquisa">
+                	<a class="db" href="/home">
+                     <img src="/imagens/barra-pesquisa.jpeg" width=250 height=40/>
+                </a>
+            </div>
+            </li></ul>
+            <div class="box-select">
+                <select onchange="if (this.value) window.location.href=this.value">
+                    <option value="/opcoes">Opções</option>
+                    <option value="/configuracoes">Configurações</option>
+                    <option value="/perfil">Perfil</option>
+                    <option value="/logout">Sair</option>
+                </select>
+            </div>
+        </nav>
+    </div>
+</header>

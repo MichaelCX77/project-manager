@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/vendor/reset.css">
+        <link rel="stylesheet" href="/css/vendor/tachyons.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="sortcut icon" href="/imagens/favicon.ico" type="image/x-icon" />
+        <title>Listagem Classe</title>
+    </head>
+    <body class="class-listing">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <div class="class-listing-content">
+                <div class="w-15">
+                    <a th:href="@{/detalhe-sala-integrantes/(idCurso=${idCurso},idClasse=${idClasse})}"><button class="back-button default-btn">Voltar</button></a>
+                </div>
+                <div class="box-list-items">
+                   	<h1 th:each="classe : ${classe}" th:text="'Trabalhos da Sala: ' + ${classe.codigo} + ' - ' +${classe.nome}"></h1>
+                    <diV class="home-list-items"> 
+                    	<span th:text="${mensagem}"></span>                   
+	                    <div th:each="listTrabalhos : ${listTrabalhos}" class="list-item">
+	                        <a href="#" class="db">
+	                            <div class="box-title">
+	                            	<input type="hidden" th:value="${listTrabalhos.id}"/>
+	                                <h5 th:text="${listTrabalhos.trabalho.nome}"></h5>
+	                                <h3 th:text="'Disciplina: '+ ${listTrabalhos.relacaoClasse.disciplina.nome}"></h3>
+	                                <h3 th:text="'Data de Criação: ' +${listTrabalhos.trabalho.dtCriacaoFormatada}"></h3>
+	                                <h3 th:text="'Data de Entrega: ' +${listTrabalhos.trabalho.dtEntregaFormatada}"></h3>
+	                            </div>
+	                        </a>
+	                        <span><a th:href="@{/detalhe-trabalho/(idRelacaoTrabalho=${listTrabalhos.id})}"><button class="arrow-icon"></button></a></span>
+	                    </div>
+                    </diV>
+                </div>
+               <input type="hidden" id="input-email" name="idCurso" th:value="${idCurso}"/>
+			   <input type="hidden" id="input-email" name="idClasse" th:value="${idClasse}"/>
+               <a sec:authorize="hasRole('PR')" th:href="@{/novo-trabalho/(idClasse=${idClasse},idCurso=${idCurso})}"><button class="default-btn form-btn">Novo Trabalho</button></a>
+            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="/js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/vendor/reset.css">
+        <link rel="stylesheet" href="/css/vendor/tachyons.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="sortcut icon" href="/imagens/favicon.ico" type="image/x-icon" />
+        <title>Detalhes do Trabalho</title>
+    </head>
+    <body class="class-listing detalhes-sala">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+        	<div class="detalhes-sala-content">
+            	<a href="/minhas-salas-integrantes"><button class="back-button default-btn">Voltar</button></a>
+            	<div class="box-list-items">
+            	<h1 th:each="trabalho : ${trabalho}" th:text="'Detalhes do Trabalho: - ' + ${trabalho.nome}"></h1>
+            			<div class="flex flex-wrap">
+				            <div class="home-list-items">
+				           		<div  th:each="trabalho : ${trabalho}" class="list-item">
+				                    <a href="#" class="db">
+						                    <div class="box-title">
+						                        <h5>Trabalho: <span th:text="${trabalho.nome}"></span></h5>
+						                        <h5>Data de Criação: <span th:text="${trabalho.dtCriacaoFormatada}"></span></h5>
+						                        <h5>Data de Entrega: <span th:text="${trabalho.dtEntregaFormatada}"></span></h5>
+						                    </div>
+				                      </a>
+				                  </div>
+				           		<div  class="list-item">
+				                    <a href="#" class="db">
+						                    <div class="box-title">
+						                        <h5>Descrição:</h5>
+						                        <h4 th:text="${trabalho.descricao}"></h4>
+						                    </div>
+				                      </a>
+				                 </div>
+				                 <h1 sec:authorize="hasRole('PR')">Novo Grupo:</h1>
+				                 	<div class="form-cadastro" sec:authorize="hasRole('PR')" >
+										<div class="form-content">
+											<div class="box-field">
+						                        <label >Nome do grupo:</label>
+												<input id="nomeGrupo" type="text" th:name="nomeGrupo" required/>
+												<input type="hidden" id="input-email" name="idRelacaoTrabalho" th:value="${idRelacaoTrabalho}"/>
+											</div>
+											 <span th:text="${mensagemNovoGrupo}"></span>
+		                   					 <a th:href="@{/novo-grupo/(idRelacaoTrabalho=${idRelacaoTrabalho},nomeGrupo=${nomeGrupo})}"><button class="default-btn form-btn w-100">Criar</button></a>
+										</div>
+								</div>
+				             </div>
+				             <div class="box-add-form">
+				             	<br/><br/><br/>	<br/><br/><br/>	<br/><br/><br/><br/><br/>
+					             <h1 sec:authorize="hasRole('PR')">Adicionar Integrante:</h1>
+						       	<div class="form-cadastro" sec:authorize="hasRole('PR')" >
+										<div class="form-content">
+											<div class="box-field">
+						                        <label >Grupo:</label>
+						                        <select id="select-unit-country" th:name="idGrupo">
+						                        	<option th:text="Selecione.."></option>
+						                            <option th:each="listGruposAdd : ${listGruposAdd}" th:value="${listGruposAdd.idGrupo}" th:text="${listGruposAdd.nome}"></option>
+						                        </select>
+						                    </div>
+						                    <div class="box-field">
+						                        <label >Aluno:</label>
+						                        <select id="select-unit-country" th:name="idAluno">
+						                        	<option th:text="Selecione.."></option>
+						                            <option th:each="listAlunos : ${listAlunos}" th:value="${listAlunos.id}" th:text="${listAlunos.nome}"></option>
+						                        </select>
+						                    </div>
+											<div class="box-field">
+												<input type="hidden" id="input-email" name="idRelacaoTrabalho" th:value="${idRelacaoTrabalho}"/>
+											</div>
+											 <span th:text="${mensagem}"></span>
+		                   					 <a th:href="@{/adicionar-integrante/(idRelacaoTrabalho=${idRelacaoTrabalho},idGrupo=${idGrupo},idAluno=${idAluno})}"><button class="default-btn form-btn w-100">Adicionar</button></a>
+										</div>
+								</div>
+								<br/>
+								<br/>
+							</div>
+						</div>
+					<div class="box-list-database"> 
+					<h1>Grupos:</h1>
+					<div class="class-listing-content">
+		                <div class="box-list-items">
+		                    <diV class="home-list-items"> 
+			                    <div class="list-item">
+			                        <a href="#" class="db">
+			                            <div class="box-title">
+			                            	<h5 th:text="'Grupo 1'"></h5>
+			                                <h5 th:text="'Líder: José Luiz'"></h5>
+			                                <h3 th:text="'Carlos Henrique'"/>
+			                                <h3 th:text="'André Garcia'"/>
+			                                <h3 th:text="'Milena Alcântara'"/>
+			                            </div>
+			                        </a>
+			                        <button class="item-details"></button>
+			                    </div>
+		                    </diV>
+		                </div>
+		               <input type="hidden" id="input-email" name="idRelacaoTrabalho" th:value="${idRelacaoTrabalho}"/>
+		            </div>
+				</div>
+	            </div>
+            </div>
+            <br/><br/>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

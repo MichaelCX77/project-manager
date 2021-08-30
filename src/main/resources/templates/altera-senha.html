@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Alteração de Senha</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <nav>
+                    <div class="menu-icon hide-desk">
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+          <a href="/login"><button class="back-button default-btn">Voltar</button></a>
+            <h1>Alterar Senha</h1>
+            <form method="POST" class="form-cadastro">
+            	<div th:each="usuario : ${usuario}" class="form-content">
+	                <div class="form-content">
+	                    <div class="box-field">
+	                        <label for="input-senha">Nova Senha:</label>
+	                        <input id="input-senha" type="password" name="senha" required th:value="${usuario.senha}"/>
+	                    </div>
+	                    <div class="box-field">
+	                        <label for="input-conf-senha">Confirma Senha:</label>
+	                        <input id="input-conf-senha" type="password" required/>
+	                        <input type="hidden" id="input-conf-senha" name="email" th:value="${usuario.email}"/>
+	                    </div>
+	                    <span th:text="${mensagem}"></span>
+	                    <div class="form-footer-2btn flex justify-center">
+	                        <button class="default-btn form-btn" type="submit">Alterar</button>
+	                    </div>
+	                </div>
+                </div>
+            </form>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<html 
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns="http://www.ultraq.net.nz/thymeleaf/layout" 
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  >
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/date-range-picker.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <title>Project Manager</title>
+    </head>
+    <body class="home">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <aside class="aside-menu-bar">
+                <ul>
+                    <li sec:authorize="hasRole('ES')"><a href="/criar-unidade">Criar Unidade</a></li>
+                    <li sec:authorize="hasRole('AD')"><a href="/criar-curso">Criar Curso</a></li>
+                    <li sec:authorize="hasRole('AD')"><a href="/criar-disciplina">Criar Disciplina</a></li>
+                    <li sec:authorize="hasRole('SE')"><a href="/criar-classe">Criar Classe</a></li>
+                    <li sec:authorize="hasRole('ES')"><a href="/minhas-unidades">Minhas Unidades</a></li>
+                    <li sec:authorize="hasAnyRole('AD')"><a href="/meus-cursos">Meus Cursos</a></li>
+                    <li sec:authorize="hasAnyRole('AD')"><a href="/minhas-disciplinas">Minhas Disciplinas</a></li>
+                    <li sec:authorize="hasAnyRole('AD')"><a href="/minhas-classes">Minhas Classes</a></li>
+                    <li sec:authorize="hasAnyRole('SE')"><a href="/minhas-salas-adm">Minhas Salas</a></li>
+                    <li sec:authorize="hasAnyRole('AL')"><a href="/minhas-salas-integrantes">Minhas Salas</a></li>
+                    <li sec:authorize="hasAnyRole('AD')"><a href="/relacionar-sala">Relacionar Salas</a></li>
+                    <li sec:authorize="hasAnyRole('AL')"><a href="/meus-trabalhos">Meus Trabalhos</a></li>
+                    <li sec:authorize="hasAnyRole('AD')"><a href="/pesquisa-geral">Pesquisa Geral</a></li>
+                    <li sec:authorize="hasAnyRole('PR')"><a href="/avaliacoes">Avaliações</a></li>
+                    <li sec:authorize="hasAnyRole('PR')"><a href="/solicitar-licenca">Solicitar Licença</a></li>
+                    <li sec:authorize="hasAnyRole('SE')"><a href="/aprovar-licenca">Aprovar Licença</a></li>
+                    <li sec:authorize="hasAnyRole('FI')"><a href="/liberar-licenca">Liberar Licença</a></li>
+                    <li sec:authorize="hasRole('ES')"><a href="/meus-administradores">Meus Administradores</a></li>
+                    <li sec:authorize="hasRole('AD')"><a href="/meus-secretarios">Meus Secretários</a></li>
+                    <li sec:authorize="hasRole('AD')"><a href="/meus-financeiros">Meus Financeiros</a></li>
+                    <li sec:authorize="hasRole('AD')"><a href="/meus-professores">Meus Professores</a></li>
+                    <li sec:authorize="hasRole('AL')"><a href="/ativar-codigo">Ativar Código de Acesso</a></li>
+                </ul>
+            </aside>
+            <div class="home-content">
+                <div class="home-list-items">
+                <span th:text="${mensagem}"></span>
+                    <div th:each="tarefa : ${tarefa}" class="list-item">
+                        <a href="#" class="db">
+                            <div class="box-title">
+                            	<input type="hidden" th:value="${tarefa.id}"/>
+                                <h5 th:text="${tarefa.nome}"></h5>
+                                <h5 th:text="${tarefa.classe.codigo}"></h5>
+                                <h5 th:text="${tarefa.curso.nomeCurso}"></h5>
+                            </div>
+                            <div class="box-date">
+                                Data Inicial: <p th:text="${tarefa.dtInicialFormatada}"></p>
+                                Data Final: <p th:text="${tarefa.dtFinalFormatada}"></p>
+                            </div>
+                        </a>
+                        <button class="item-details"></button>
+                    </div>
+                </diV>
+            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.1/moment.min.js" integrity="sha256-5/m/BUcR9oL4YXtVrm4zHQmxwjO6pZBNkdysFIs4Gd0=" crossorigin="anonymous"></script>        
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.20.0/jquery.daterangepicker.min.js" integrity="sha256-qQx2CIbSRccEP6dedJGT0WHKhX0WhZi8crKw6TzfUeI=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

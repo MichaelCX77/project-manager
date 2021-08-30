@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Relacionar Salas</title>
+    </head>
+    <body class="cadastro-aluno">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+            <h1>Relacionar Salas</h1>
+            <form method="POST" class="form-cadastro" action="/relacionar-sala">
+                <div class="form-content">
+                    <div class="box-field">
+                        <label >Curso:</label>
+                        <select id="select-unit-country" th:name="idCurso">
+                        	<option selected="selected" value="999">Selecione</option>
+                            <option th:each="curso: ${curso}" th:value="${curso.id}"><span th:text="${curso.codigoCurso}"/><span> - </span><span th:text="${curso.nomeCurso}"/></option>
+                        </select>
+                    </div>
+                    <div class="box-field">
+                        <label >Disciplina:</label>
+                        <select id="select-unit-country" th:name="idDisciplina">
+                        	<option selected="selected" value="999">Selecione</option>
+                            <option th:each="disciplina : ${disciplina}" th:value="${disciplina.id}"><span th:text="${disciplina.codigo}"/><span> - </span><span th:text="${disciplina.nome}"/></option>
+                        </select>
+                    </div>
+                    <div class="box-field">
+                        <label >Classe:</label>
+                        <select id="select-unit-country" th:name="idClasse">
+                        	<option selected="selected" value="999">Selecione</option>
+                            <option th:each="classe : ${classe}" th:value="${classe.id}"><span th:text="${classe.codigo}"/><span> - A:</span><span th:text="${classe.ano}"/><span> - P:</span><span th:text="${classe.periodo}"/><span> - </span><span th:text="${classe.nome}"></span></option>
+                        </select>
+                    </div>
+                    <span th:text="${mensagem}"></span>
+                    <button type="submit" class="default-btn form-btn w-100">Relacionar</button>
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

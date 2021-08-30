@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Atuação do Aluno</title>
+    </head>
+    <body>
+		<header th:insert="fragments/header.html :: header"> </header>
+        <main>
+            <div class="backdrop"></div>
+            <a href="/home"><button class=" default-btn back-button">Voltar</button></a>
+            <div class="page-header">
+                <h2>Detalhes de atuação do aluno</h2>
+                <h2>Cadastro Professor</h2>
+            </div>
+            <div class="page-content">
+
+                <!-- fazer get no json do JAN para montar a lista de items dessa parte, e analisar qual estrutura do html esta melhor, a comentada ou a descomentada -->
+
+
+                <ul class="list-tasks">
+                    <li class="first">
+                        <p class="title">id:</p>    
+                        <p class="title">Nome:</p>    
+                        <p class="title">Tarefa:</p>    
+                        <p class="title">Status:</p>    
+                        <p class="title">data da conclusão:</p>    
+                    </li>
+                    <li>
+                        <p class="id"></p>
+                        <p class="name"></p>    
+                        <p class="task"></p>    
+                        <p class="status"></p>    
+                        <p class="date"></p>    
+                    </li>
+                </ul>
+                <!-- <div class="box-item box-name">
+                    <h3>Nome:</h3>
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="box-item box-task">
+                    <h3>Tarefa:</h3>
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="box-item box-status">
+                    <h3>Status:</h3>
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="box-item box-date">
+                    <h3>data da conclusão:</h3>
+                    <ul>
+
+                    </ul>
+                </div> -->
+            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

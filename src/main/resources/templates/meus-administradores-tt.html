@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <title>Meus Administradores</title>
+    </head>
+    <body class="class-listing">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <div class="class-listing-content">
+                <div class="w-15">
+                    <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+                </div>
+                <div class="box-list-items">
+                	<h1>Meus Administradores:</h1>
+                    <diV class="box-list-database">   
+                    		<form method="POST" action="/adicionar-administrador" class="form-cadastro">
+								<div class="form-content">
+									<div class="box-field">
+										<label for="input-email">Adicionar Administrador:</label>
+										<select id="select-unit-country" th:name="idRelacaoClasse">
+											<option selected="selected" value="999">Selecione</option>
+                            				<option th:each="unidadesSemAdministrador : ${unidadesSemAdministrador}" th:value="${unidadesSemAdministrador.id}" th:text="${unidadesSemAdministrador.unidade.nome}"></option>
+                       					</select>
+									</div>
+									<div class="box-field">
+										<input id="input-email" type="email" name="email" placeholder="Digite o e-mail do colaborador..." th:value="${email}"></input>
+										<input type="hidden" id="" name="tela" value="AD"/>
+									</div>
+									 <span th:text="${mensagem}"></span>
+                   					 <button type="submit" class="default-btn form-btn w-100">Adicionar</button>
+								</div>
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+							</form>
+                    	    <table>
+								<thead>
+									<tr>
+										<th>Unidade:</th>
+										<th>Administrador:</th>
+										<th>E-mail:</th>
+									</tr>
+								</thead>
+								<!-- <tbody>
+									<tr class="list-item" th:each="administradores : ${administradores}" th:value="${administradores.id}">
+										<td><span th:text="${administradores.relacaoClasse.unidade.nome}"></span></td>
+										<td><span th:text="${administradores.usuarioIncluido.nome}"></span></td>
+										<td><span th:text="${administradores.usuarioIncluido.email}"></span></td>
+										<td><button class="item-details"></button></td>
+									</tr>
+								</tbody> -->
+								<tbody>
+									<tr value="6">
+										<td><span>Unasp - São Paulo</span></td>
+										<td><span>Elen Moreira</span></td>
+										<td><span>MAYCOW_777@HOTMAIL.COM</span></td>
+										<td><button class="item-details"></button></td>
+										<td><button class="item-remove"></button></td>
+									</tr>
+									<tr value="10">
+										<td><span>Unasp - Vila Madalena</span></td>
+										<td><span>Adm P das Galaxias</span></td>
+										<td><span>TESTEADM@TT.COM</span></td>
+										<td><button class="item-details"></button></td>
+									</tr>
+									<tr value="5">
+										<td><span>Unaps - Capão Redondo</span></td>
+										<td><span>Administrador Estudantil</span></td>
+										<td><span>ADM@ADM.COM</span></td>
+										<td><button class="item-details"></button></td>
+									</tr>
+								</tbody>
+							</table>
+                    </diV>
+                </div>
+            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+</html>

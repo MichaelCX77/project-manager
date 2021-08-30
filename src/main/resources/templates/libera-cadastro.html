@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Cadastrar Aluno</title>
+    </head>
+    <body class="cadastro-aluno">
+        <header>
+            <div class="header-content">
+                <nav>
+                    <div class="menu-icon hide-desk">
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+        <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+            <h1><span th:text="${tipoCadastro}"></span></h1>
+            <form th:each="usuario : ${usuario}" action="/libera-cadastro" method="POST" class="form-cadastro">
+                <div class="form-content">
+                    <div class="box-field">
+                        <label for="input-name">Nome:</label>
+                        <input id="input-name" type="text"name="nome" th:value="${usuario.nome}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-email">Email:</label>
+                        <input id="input-email" type="email" name="email" th:value="${usuario.email}" readonly/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-cpf">CPF:</label>
+                        <input id="input-cpf" type="text" name="cpf" th:value="${usuario.cpf}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-registro">Registro:</label>
+                        <input id="input-registro" type="text" name="registro" th:value="${usuario.registro}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-dt-nascimento">Data de Nascimento:</label>
+                        <input id="input-dt-nascimento" type="date" name="dtNasc" th:value="${usuario.dtNasc}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-senha">Senha:</label>
+                        <input id="input-senha" type="password" name="senha" th:value="${usuario.senha}"/>
+                    </div>
+                    <div class="box-field">
+                        <label for="input-conf-senha">Confirmação de Senha:</label>
+                        <input id="input-conf-senha" type="password" />
+                        <input type="hidden" id="input-email" name="codigo" th:value="${codigo}"/>
+                    </div>
+                    <span th:text="${mensagem}"></span>
+                    <button type="submit" class="default-btn form-btn w-100">Cadastrar</button>
+                </div>
+            </form>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

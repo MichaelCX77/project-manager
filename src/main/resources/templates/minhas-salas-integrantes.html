@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <title>Minhas Salas</title>
+    </head>
+    <body class="class-listing">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+	        	<div class="class-listing-content">
+	                <div class="w-15">
+	                    <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+	                </div>
+	                <div class="box-list-items">
+	                	<h1>Minhas Salas:</h1>
+	                    <diV class="box-list-database">   
+	                    	<span th:text="${mensagem}"></span> 
+	                    	    <table>
+									<thead>
+										<tr>
+											<th>Curso:</th>
+											<th>Classe:</th>
+											<th>Disciplinas:</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="salas : ${salas}" class="list-item">
+											<td><span th:text="${salas.curso.nomeCurso}"></span></td>
+											<td><span th:text="${salas.classe.codigo}" th:value="${salas.classe.id}"></span><span> : </span><span th:text="${salas.classe.nome}"/><span> : </span><span th:text="${salas.classe.ano}"/><span> - </span><span th:text="${salas.classe.periodo}"/></td>
+											<td>
+											<span th:each="disciplina, iter : ${salas.disciplinas}">
+												<span th:each="rowValue, state : ${disciplina}" th:text="${iter.count} + ' - ' + ${disciplina.nome}"></span><br/>
+											</span>
+											</td>
+											<td><a th:href="@{/detalhe-sala-integrantes/(idClasse=${salas.classe.id},idCurso=${salas.curso.id})}"><button class="item-details"></button></a></td>
+										</tr>
+									</tbody>
+								</table>
+						</div>
+	                </div>
+	            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+</html>

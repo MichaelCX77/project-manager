@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/vendor/reset.css">
+        <link rel="stylesheet" href="css/vendor/tachyons.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="sortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+        <title>Minhas Unidades</title>
+    </head>
+    <body class="class-listing">
+		<header th:replace="fragments/header.html :: header(nomeUsuario=${nomeUsuario})"> </header>
+        <main>
+            <div class="class-listing-content">
+                <div class="w-15">
+                    <a href="/home"><button class="back-button default-btn">Voltar</button></a>
+                </div>
+                <div class="box-list-items">
+                    <h1>Listagem de Unidades</h1>
+                    <diV class="home-list-items">   
+                    	<span th:text="${mensagem}"></span>                 
+	                    <div th:each="unidade : ${unidade}" class="list-item">
+	                        <a href="#" class="db">
+	                            <div class="box-title">
+	                            	<input type="hidden" th:value="${unidade.id}"/>
+	                                <h5 th:text="${unidade.nome}"></h5>
+	                                <h5 th:text="${unidade.pais}"></h5>
+	                                <h5 th:text="${unidade.cidade} + ' - ' + ${unidade.estado}"></h5>
+	                            </div>
+	                            <div class="box-date">
+	                                <p th:text="'CEP: ' +  ${unidade.cep}"></p>
+	                                <p th:text="'Endereço: ' + ${unidade.endereco}"></p>
+	                                <p th:text="'Número: ' + ${unidade.numero}"></p>
+	                            </div>
+	                        </a>
+	                    </div>
+                    </diV>
+                </div>
+            </div>
+        </main>
+        <footer th:replace="fragments/footer.html"></footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

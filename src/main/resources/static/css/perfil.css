@@ -1,0 +1,188 @@
+body.perfil-page h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+body.perfil-page .box-logo {
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+body.perfil-page .box-main-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 100%;
+    align-items: center;
+    padding: 0 10px;
+}
+
+body.perfil-page .box-main-info .box-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f5f6ff;
+    border-radius: 5px;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 4px 0px #5f5d5d;
+}
+
+body.perfil-page .box-main-info .box-text p {
+    padding: 5px 0;
+}
+
+body.perfil-page .perfil-conteudo {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+body.perfil-page .box-item-left .item {
+    margin-bottom: 20px;
+    background-color: #f5f6ff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0px 0px 4px 0px #5f5d5d;
+}
+
+body.perfil-page .box-stars span {
+    color: #ffd700
+}
+
+body.perfil-page .box-comment svg {
+    height: 20px;
+    width: 20px;
+}
+
+body.perfil-page .box-item-right > div {
+    margin-bottom: 20px;
+}
+
+body.perfil-page .box-item-right {
+    padding: 0 10px;
+    width: calc(50% - 20px);
+}
+
+body.perfil-page .box-item-left {
+    padding: 0 10px;
+    width: calc(50% - 20px);
+}
+
+body.perfil-page .box-item-left .item > p {
+    margin-bottom: 5px;
+}
+
+body.perfil-page .box-logo > h2 {
+    margin-top: 10px;
+}
+
+body.perfil-page .box-item-right .box-lista-trabalhos li.lista-trabalhos-item {
+    background-color: #f5f6ff;
+    border-radius: 5px;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 4px 0px #5f5d5d;
+}
+
+body.perfil-page .box-item-right .box-lista-trabalhos > h3 {
+    margin-bottom: 5px;
+}
+
+body.perfil-page .box-item-right .box-lista-trabalhos > p {
+    margin-bottom: 10px;
+}
+
+body.perfil-page .comment-name {
+    display: flex;
+    align-items: center;
+}
+
+body.perfil-page .comment-name > span {
+    margin-left: 3px;
+}
+
+body.perfil-page .comment-name:before {
+    content: "";
+    width: 25px;
+    margin-right: 5px;
+    height: 25px;
+    background-size: 15px !important;
+    display: inline-block;
+    border-radius: 100%;
+    background-repeat: no-repeat !important;
+    background: black;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%0A%3Csvg id='Capa_1' enable-background='new 0 0 515.556 515.556' height='20' viewBox='0 0 515.556 515.556' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='m348.918 37.751c50.334 50.334 50.334 131.942 0 182.276s-131.942 50.334-182.276 0-50.334-131.942 0-182.276c50.334-50.335 131.942-50.335 182.276 0'/%3E%3Cpath fill='white' d='m455.486 350.669c-117.498-79.391-277.917-79.391-395.415 0-17.433 11.769-27.848 31.656-27.848 53.211v111.676h451.111v-111.676c0-21.555-10.416-41.442-27.848-53.211z'/%3E%3C/svg%3E");
+}
+
+body.perfil-page .lista-indicacoes li {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body.perfil-page .box-comment-title,
+body.perfil-page .box-stars {
+    margin-bottom: 5px;
+}
+
+body.perfil-page .lista-indicacoes .slick-dots {
+    display: flex;
+    margin-top: 10px;
+}
+
+body.perfil-page .lista-indicacoes .slick-dots li {
+    margin: 0 5px;
+    width: 10px;
+}
+
+body.perfil-page .lista-indicacoes .slick-dots li button {
+    border: 0;
+    border-radius: 100%;
+    font-size: 0;
+    display: block;
+    height: 10px;
+    box-shadow: 0px 0px 2px 0px #5f5d5d;
+    width: 10px;
+    background: #f5f6ff;
+    cursor: pointer;
+}
+
+body.perfil-page .lista-indicacoes .slick-dots li.slick-active button {
+    background: #0F2D51;
+}
+
+@media(min-width: 960px) {
+    body.perfil-page .box-main-info > div {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 959px) {
+    body.perfil-page .box-item-left,
+    body.perfil-page .box-item-right {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    body.perfil-page .box-main-info {
+        margin-bottom: 20px;
+        display: block;
+    }
+    body.perfil-page .box-main-info .box-text {
+        margin-bottom: 0;
+        padding: 15px 20px;
+    }
+}
+
+@media(max-width: 400px) {
+    body.perfil-page .box-item-left img[alt="Gráfico"] {
+        width: 100%;
+    }
+}
