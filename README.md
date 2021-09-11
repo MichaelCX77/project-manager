@@ -1,5 +1,5 @@
-# Save Time
-[![NPM](https://img.shields.io/npm/l/react)]()
+# Project Manager
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/MichaelCX77/project-manager/blob/main/LICENSE)
 <br/><br/>
 
 ## <li> Sobre o Projeto
