@@ -27,7 +27,7 @@ public class EnviarEmailModel {
                         new javax.mail.Authenticator() {
                              protected PasswordAuthentication getPasswordAuthentication() 
                              {
-                                   return new PasswordAuthentication("pm.manager.service@gmail.com", "owpcugtjwacfsqpr");
+                                   return new PasswordAuthentication("EMAIL", "SENHA");
                              }
                         });
  
@@ -37,7 +37,7 @@ public class EnviarEmailModel {
             try {
  
                   Message message = new MimeMessage(session);
-                  message.setFrom(new InternetAddress("pm.manager.service@gmail.com")); //Remetente
+                  message.setFrom(new InternetAddress("REMETENTE")); //Remetente
  
                   Address[] toUser = InternetAddress //Destinat�rio(s)
                              .parse(email.trim());
@@ -72,7 +72,7 @@ public class EnviarEmailModel {
                       new javax.mail.Authenticator() {
                            protected PasswordAuthentication getPasswordAuthentication() 
                            {
-                                 return new PasswordAuthentication("pm.manager.service@gmail.com", "Proj@1020");
+                                 return new PasswordAuthentication("EMAIL", "SENHA");
                            }
                       });
 
@@ -82,7 +82,7 @@ public class EnviarEmailModel {
           try {
 
                 Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress("pm.manager.service@gmail.com")); //Remetente
+                message.setFrom(new InternetAddress("EMAIL")); //Remetente
 
                 Address[] toUser = InternetAddress //Destinat�rio(s)
                            .parse(email.trim());
