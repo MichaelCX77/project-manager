@@ -33,9 +33,8 @@ A plataforma precisa terminar de ser desenvolvida já que o escopo da solução 
     <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag3.png"></a><br/><br/>
     <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag4.png"></a><br/><br/>
     <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag5.png"></a><br/><br/>
-
 </div>
-<br/><br/>
+<br/>
 
 # Tecnologias utilizadas
 
