@@ -24,14 +24,16 @@ A plataforma precisa terminar de ser desenvolvida já que o escopo da solução 
 
 <br/>
 
-## <li> Layout da Plataforma - (Apresentação desenvolvida para Pitch do Project Manager)
+## <li> Layout da Plataforma - (Desenho para Pitch)
 
 <br/>
 <div align="center">
-    
-    
-    
-    
+    <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag1.png"></a><br/><br/>
+    <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag2.png"></a><br/><br/>
+    <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag3.png"></a><br/><br/>
+    <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag4.png"></a><br/><br/>
+    <img height="500em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/png/pag5.png"></a><br/><br/>
+
 </div>
 <br/><br/>
 
@@ -40,35 +42,61 @@ A plataforma precisa terminar de ser desenvolvida já que o escopo da solução 
 
 ## Front end
 
-<li> 
+<li> HTML
+<li> CSS
+<li> Javascript
+<li> BootsTrap
+<li> Thimeleaf
+
   
 <br/>
   
 ## Back end
   
-<li>
-<li>
-<li>
-<li>
+<li> Java / SpringBoot
+<li> Maven
+<li> Segurança: Spring Security / User Details
+<li> Outras Biblitecas e Ferramentas: Crud Repository, JPA, Javax Mail, JodaTime, ModelAndView.
 
 <br/>
   
 ## Implantação em Produção
 
-<li>
+<li> Hospedagem da aplicação em Núvem Heroku
+<li> Banco de dados Postgresql em Nuvem Heroku (AWS)
   
 <br/><br/>
   
-# Como executar o Projeto
+# Como criar o banco de dados local
+    
+  Pré Requisitos: PSQL com variáveis de ambiente configuradas
+    
+ ```bash
+  #1 Logar no console PSQL
+    Logar em uma database do PSQL (PostgreSQL) com usuário que possua permissões de administrador
   
-Pré Requisito: Java 8
+  #2 Executar script de criação do banco
+    Executar script "Criação do banco Local.sql" presente na pasta "doc" do projeto
+  ```
+<br/>   
+   
+# Como executar o Projeto
+
+Pré Requisito: Java 8 e Maven com variáveis de ambiente configuradas
 
   ```bash
-# clonar repositório
-  git clone https://github.com/MichaelCX77/save-time/
+#1 clonar repositório
+  git clone https://github.com/MichaelCX77/project-manager
   
-# 
-  abrir 
+#2 entrar na pasta do projeto
+  cd project-manager
+ 
+#3 executar build maven
+  mvn clean package
+    
+#4 executar artefato
+  java -jar target/projetc.manager-{VERSION}.jar
+    
   ```
   
   
