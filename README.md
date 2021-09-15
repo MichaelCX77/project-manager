@@ -45,7 +45,7 @@ A plataforma precisa terminar de ser desenvolvida já que o escopo da solução 
 <li> CSS
 <li> Javascript
 <li> BootsTrap
-<li> Thimeleaf
+<li> Thymeleaf
 
   
 <br/>
