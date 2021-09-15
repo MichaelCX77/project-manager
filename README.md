@@ -1,4 +1,4 @@
-# Project Manager <img align="right" height="100em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/jpg/logo.jpeg"></a>
+# Project Manager <img align="right" width="250em" src="https://github.com/MichaelCX77/assets/blob/master/assets-project-manager/jpg/logo.jpeg"></a>
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/MichaelCX77/project-manager/blob/main/LICENSE)
 
 <br/>
